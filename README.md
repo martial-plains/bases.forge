@@ -7,7 +7,7 @@ repository's URL and set `vault` to your notes directory):
 
 ```rhai
 use_package("bases", #{
-    git: "https://github.com/<owner>/forge-plugin-bases",
+    git: "https://github.com/martial-plains/bases.forge",
     config: #{ vault: "~/Notes", column_width: 32 },
     grant: #{ directories: ["~/Notes"] },
 });
