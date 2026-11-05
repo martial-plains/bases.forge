@@ -1,0 +1,21 @@
+# Your Org files (agenda, church, inventory...) next to your Markdown notes.
+formulas:
+  kind: 'if(file.ext == "org", "Org", "Markdown")'
+properties:
+  formula.kind:
+    displayName: Type
+views:
+  - type: table
+    name: By type
+    groupBy:
+      property: formula.kind
+    order: [file.name, file.folder, file.tags, file.mtime]
+    sort:
+      - property: file.mtime
+        direction: DESC
+  - type: list
+    name: Org only
+    filters:
+      and:
+        - 'file.ext == "org"'
+    order: [file.name, file.folder]

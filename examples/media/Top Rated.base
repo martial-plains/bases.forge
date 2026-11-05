@@ -1,0 +1,33 @@
+# The best of everything, and what you finished but never rated.
+filters:
+  and:
+    - '!type.isEmpty()'
+views:
+  - type: table
+    name: 8 and up
+    filters:
+      and:
+        - 'rating >= 8'
+    order: [title, type, rating, year, genres]
+    sort:
+      - property: rating
+        direction: DESC
+  - type: cards
+    name: Posters
+    image: poster
+    filters:
+      and:
+        - 'rating >= 8'
+    groupBy:
+      property: type
+    order: [title, rating]
+    sort:
+      - property: rating
+        direction: DESC
+  - type: table
+    name: Finished, not rated
+    filters:
+      and:
+        - 'rating.isEmpty()'
+        - 'status == "watched" || status == "completed" || status == "read" || status == "100%"'
+    order: [title, type, finished]

@@ -1,0 +1,20 @@
+# Titles you recommend to someone, and ones someone recommended to you.
+filters:
+  and:
+    - '!type.isEmpty()'
+views:
+  - type: table
+    name: To recommend
+    filters:
+      and:
+        - '!recommend_to.isEmpty()'
+    order: [title, type, rating, recommend_to]
+    sort:
+      - property: rating
+        direction: DESC
+  - type: table
+    name: Recommended to me
+    filters:
+      and:
+        - '!recommended_by.isEmpty()'
+    order: [title, type, status, recommended_by]

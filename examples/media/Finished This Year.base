@@ -1,0 +1,21 @@
+# What you finished this year, newest first.
+filters:
+  and:
+    - '!type.isEmpty()'
+    - '!finished.isEmpty()'
+    - 'finished.year == now().year'
+views:
+  - type: table
+    name: Finished
+    order: [title, type, finished, rating]
+    sort:
+      - property: finished
+        direction: DESC
+  - type: list
+    name: By type
+    groupBy:
+      property: type
+    order: [title, finished]
+    sort:
+      - property: finished
+        direction: DESC

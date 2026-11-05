@@ -1,0 +1,27 @@
+# Shows: a board by status, a table by rating, and what is on now.
+filters:
+  and:
+    - 'type == "show"'
+views:
+  - type: kanban
+    name: Board
+    groupBy:
+      property: status
+    columns: [plan-to-watch, watching, completed, on-hold, dropped]
+    order: [title, year, rating]
+  - type: table
+    name: By rating
+    order: [title, year, rating, status, genres]
+    sort:
+      - property: rating
+        direction: DESC
+  - type: list
+    name: Watching now
+    filters:
+      and:
+        - 'status == "watching"'
+    order: [title, year]
+  - type: cards
+    name: Posters
+    image: poster
+    order: [title, year, rating]

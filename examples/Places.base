@@ -1,0 +1,16 @@
+# Notes with a `coordinates: [latitude, longitude]` property, as pins on a
+# map. Add `tiles: "https://tile.openstreetmap.org/{z}/{x}/{y}.png"` to the
+# view for a street map; without it Forge draws a plain grid.
+filters:
+  and:
+    - '!coordinates.isEmpty()'
+views:
+  - type: map
+    name: Map
+    coordinates: coordinates
+    defaultZoom: 5
+    markerColor: "#f38ba8"
+    order: [file.name]
+  - type: table
+    name: Table
+    order: [file.name, coordinates, file.folder]

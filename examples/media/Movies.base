@@ -1,0 +1,28 @@
+# Movies: a board by status, a table by rating, and what you haven't rated.
+filters:
+  and:
+    - 'type == "movie"'
+views:
+  - type: kanban
+    name: Board
+    groupBy:
+      property: status
+    columns: [plan-to-watch, watched]
+    order: [title, year, rating]
+  - type: table
+    name: By rating
+    order: [title, year, rating, status, genres]
+    sort:
+      - property: rating
+        direction: DESC
+  - type: table
+    name: Watched, not rated
+    filters:
+      and:
+        - 'status == "watched"'
+        - 'rating.isEmpty()'
+    order: [title, year, genres]
+  - type: cards
+    name: Posters
+    image: poster
+    order: [title, year, rating]

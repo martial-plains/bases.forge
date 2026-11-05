@@ -1,0 +1,19 @@
+# A kanban board over notes that have a `status` property. Drag a card to
+# another column and the note's status changes (a `status:` line in a
+# Markdown note's front matter, `#+status:` in an Org note).
+filters:
+  and:
+    - '!status.isEmpty()'
+views:
+  - type: kanban
+    name: Board
+    groupBy:
+      property: status
+    columns: [todo, doing, blocked, done]
+    order: [file.name, due, file.folder]
+  - type: table
+    name: Table
+    order: [file.name, status, due, file.mtime]
+    sort:
+      - property: due
+        direction: ASC

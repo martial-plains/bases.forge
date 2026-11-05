@@ -1,0 +1,30 @@
+# Books: a board by status, what you're reading, and everything by rating.
+filters:
+  and:
+    - 'type == "book"'
+views:
+  - type: kanban
+    name: Board
+    groupBy:
+      property: status
+    columns: [to-read, reading, read, on-hold, dropped]
+    order: [title, author, rating]
+  - type: table
+    name: Reading now
+    filters:
+      and:
+        - 'status == "reading"'
+    order: [title, author, progress, pages, started]
+    sort:
+      - property: started
+        direction: DESC
+  - type: table
+    name: Shelf
+    order: [title, author, series, series_number, pages, rating, status]
+    sort:
+      - property: author
+        direction: ASC
+  - type: cards
+    name: Covers
+    image: poster
+    order: [title, author, rating]

@@ -1,0 +1,26 @@
+# Games: a board by status, hours played, and the backlog.
+filters:
+  and:
+    - 'type == "game"'
+views:
+  - type: kanban
+    name: Board
+    groupBy:
+      property: status
+    columns: [backlog, playing, completed, 100%, on-hold, dropped]
+    order: [title, platform, hours]
+  - type: table
+    name: Played
+    order: [title, platform, developer, hours, rating, last_played]
+    sort:
+      - property: hours
+        direction: DESC
+  - type: table
+    name: Backlog
+    filters:
+      and:
+        - 'status == "backlog"'
+    order: [title, platform, developer, year]
+    sort:
+      - property: added
+        direction: ASC

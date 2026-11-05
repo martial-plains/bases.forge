@@ -1,0 +1,16 @@
+# Notes nobody has opened in three months: archive them or revive them.
+filters:
+  and:
+    - '(now() - file.mtime).days > 90'
+formulas:
+  idle: "(now() - file.mtime).days"
+properties:
+  formula.idle:
+    displayName: Days idle
+views:
+  - type: table
+    name: Stale
+    order: [file.name, file.folder, formula.idle]
+    sort:
+      - property: formula.idle
+        direction: DESC

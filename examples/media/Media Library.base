@@ -1,0 +1,32 @@
+# Everything in resources/media: movies, shows, books and games, read from
+# the :PROPERTIES: drawer under each note's first heading (the notes
+# entertainment.el makes). Set the bases plugin's vault to your org folder.
+filters:
+  and:
+    - '!type.isEmpty()'
+properties:
+  rating:
+    displayName: Rating
+  genres:
+    displayName: Genres
+views:
+  - type: table
+    name: Library
+    order: [title, type, status, rating, year, genres]
+    sort:
+      - property: title
+        direction: ASC
+  - type: cards
+    name: Posters
+    image: poster
+    groupBy:
+      property: type
+    order: [title, status, rating]
+    sort:
+      - property: rating
+        direction: DESC
+  - type: list
+    name: By status
+    groupBy:
+      property: status
+    order: [title, type]

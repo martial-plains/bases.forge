@@ -1,0 +1,29 @@
+[package]
+name = "forge-bases"
+version = "0.1.0"
+edition = "2024"
+description = "Bases: database views of your notes (Obsidian's .base files) as tables, cards and lists"
+license = "GPL-3.0-or-later"
+
+[package.metadata.forge]
+name = "bases"
+
+[[package.metadata.forge.permissions.directories]]
+path = "~/Notes"
+why = "your notes (the vault the Base looks through); change it to wherever they are"
+
+# Standalone: not part of the main workspace build.
+[workspace]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+forge-plugin-sdk = { git = "https://github.com/martial-plains/forge" }
+forge-notes = { git = "https://github.com/martial-plains/forge" }
+forge-canvas = { git = "https://github.com/martial-plains/forge", default-features = false }
+serde_json = "1"
+
+[profile.release]
+opt-level = "s"
+lto = true

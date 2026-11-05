@@ -1,0 +1,17 @@
+# Notes grouped by their first tag.
+formulas:
+  topic: 'if(file.tags.length > 0, file.tags[0], "(untagged)")'
+properties:
+  formula.topic:
+    displayName: Tag
+views:
+  - type: list
+    name: By tag
+    groupBy:
+      property: formula.topic
+    order: [file.name, file.folder]
+  - type: cards
+    name: Cards
+    groupBy:
+      property: formula.topic
+    order: [file.name, file.folder]

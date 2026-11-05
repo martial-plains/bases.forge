@@ -1,0 +1,26 @@
+# Every note in the vault, three ways. Click a column header to sort.
+formulas:
+  age: "(now() - file.ctime).days"
+properties:
+  formula.age:
+    displayName: Age (days)
+  file.mtime:
+    displayName: Modified
+views:
+  - type: table
+    name: Table
+    order: [file.name, file.folder, file.tags, formula.age, file.mtime]
+    sort:
+      - property: file.mtime
+        direction: DESC
+  - type: cards
+    name: Cards
+    order: [file.name, file.folder, file.tags]
+    sort:
+      - property: file.mtime
+        direction: DESC
+  - type: list
+    name: By folder
+    groupBy:
+      property: file.folder
+    order: [file.name]

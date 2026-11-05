@@ -1,0 +1,28 @@
+# Notes that nothing links to, and notes that link to nothing: the ones
+# that need filing or connecting.
+views:
+  - type: table
+    name: Nothing links here
+    filters:
+      and:
+        - 'file.backlinks.length == 0'
+    order: [file.name, file.folder, file.mtime]
+    sort:
+      - property: file.mtime
+        direction: DESC
+  - type: table
+    name: Links to nothing
+    filters:
+      and:
+        - 'file.links.length == 0'
+    order: [file.name, file.folder, file.mtime]
+    sort:
+      - property: file.mtime
+        direction: DESC
+  - type: table
+    name: Most linked
+    filters:
+      and:
+        - 'file.backlinks.length > 0'
+    formulas: {}
+    order: [file.name, file.backlinks]

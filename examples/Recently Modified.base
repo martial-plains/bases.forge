@@ -1,0 +1,21 @@
+# What you touched this week, newest first.
+filters:
+  and:
+    - '(now() - file.mtime).days < 7'
+properties:
+  file.mtime:
+    displayName: Modified
+views:
+  - type: table
+    name: This week
+    order: [file.name, file.folder, file.mtime]
+    sort:
+      - property: file.mtime
+        direction: DESC
+  - type: cards
+    name: Cards
+    order: [file.name, file.folder]
+    sort:
+      - property: file.mtime
+        direction: DESC
+    limit: 24
