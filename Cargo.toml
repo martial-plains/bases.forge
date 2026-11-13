@@ -8,6 +8,10 @@ license = "GPL-3.0-or-later"
 [package.metadata.forge]
 name = "bases"
 
+[package.metadata.forge.permissions]
+# The canvas views read the frame width to lay out cards and lanes.
+environment = true
+
 # Standalone: not part of the main workspace build.
 [workspace]
 
