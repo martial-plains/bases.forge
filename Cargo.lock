@@ -39,7 +39,7 @@ dependencies = [
 [[package]]
 name = "forge-canvas"
 version = "0.1.0"
-source = "git+https://github.com/martial-plains/forge#62da0a02b4a6fb035e98f00371524bc538e48bd3"
+source = "git+https://github.com/martial-plains/forge#b6af47e8254b593ae38fa1c5176d36a467570137"
 dependencies = [
  "serde",
  "serde_json",
@@ -48,18 +48,18 @@ dependencies = [
 [[package]]
 name = "forge-notes"
 version = "0.1.0"
-source = "git+https://github.com/martial-plains/forge#62da0a02b4a6fb035e98f00371524bc538e48bd3"
+source = "git+https://github.com/martial-plains/forge#b6af47e8254b593ae38fa1c5176d36a467570137"
 dependencies = [
  "forge-canvas",
  "serde",
  "serde_json",
- "serde_yaml",
+ "serde_norway",
 ]
 
 [[package]]
 name = "forge-plugin-sdk"
 version = "0.1.0"
-source = "git+https://github.com/martial-plains/forge#62da0a02b4a6fb035e98f00371524bc538e48bd3"
+source = "git+https://github.com/martial-plains/forge#b6af47e8254b593ae38fa1c5176d36a467570137"
 dependencies = [
  "forge-plugin-sdk-macros",
  "wit-bindgen",
@@ -68,7 +68,7 @@ dependencies = [
 [[package]]
 name = "forge-plugin-sdk-macros"
 version = "0.1.0"
-source = "git+https://github.com/martial-plains/forge#62da0a02b4a6fb035e98f00371524bc538e48bd3"
+source = "git+https://github.com/martial-plains/forge#b6af47e8254b593ae38fa1c5176d36a467570137"
 dependencies = [
  "toml",
 ]
@@ -108,9 +108,9 @@ dependencies = [
 
 [[package]]
 name = "itoa"
-version = "1.0.18"
+version = "1.0.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682"
+checksum = "3bd1574e617a9a6c1f8f8181bd7e841e1f20e4277607ef28945765188d6284d4"
 
 [[package]]
 name = "leb128fmt"
@@ -225,6 +225,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_norway"
+version = "0.9.42"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e408f29489b5fd500fab51ff1484fc859bb655f32c671f307dcd733b72e8168c"
+dependencies = [
+ "indexmap",
+ "itoa",
+ "ryu",
+ "serde",
+ "unsafe-libyaml-norway",
+]
+
+[[package]]
 name = "serde_spanned"
 version = "0.6.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -234,23 +247,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "serde_yaml"
-version = "0.9.34+deprecated"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6a8b1a1a2ebf674015cc02edccce75287f1a0130d394307b36743c2f5d504b47"
-dependencies = [
- "indexmap",
- "itoa",
- "ryu",
- "serde",
- "unsafe-libyaml",
-]
-
-[[package]]
 name = "syn"
-version = "3.0.9"
+version = "3.0.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d78c8dee4c7bf0e14673097256fed6142ce9d3b85a408189d07482442145823b"
+checksum = "4ae9ccbea3a7b0b09443036490c8f34a8b1b760fd345e5c0dae0aac718faea79"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -305,10 +305,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2c754d6c33795a1c324727428e5a7dedb5b06195f9890bdbcba760d3e246563"
 
 [[package]]
-name = "unsafe-libyaml"
-version = "0.2.11"
+name = "unsafe-libyaml-norway"
+version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "673aac59facbab8a9007c7f6108d11f63b603f7cabff99fabf650fea5c32b861"
+checksum = "b39abd59bf32521c7f2301b52d05a6a2c975b6003521cbd0c6dc1582f0a22104"
 
 [[package]]
 name = "wasm-encoder"
